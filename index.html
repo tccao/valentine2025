@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine 2025</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="hero">
+        <div class="hero-text">
+            <h1>Hello, em có tin nhắn nè</h1>
+            <p>Hãy làm ngày valentine này thật đáng nhớ nhé!</p>
+        </div>
+    </header>
+    
+
+    <!-- Form Section -->
+    <section class="booking-form">
+        <div class="form-container">
+            <h2>Lịch trình đi chơi</h2>
+            <!-- <form> No Google WebApps
+                <label for="name">Họ Tên *</label>
+                <input type="text" id="name" value="Nguyễn Lê" required>
+
+                <label for="phone">SĐT *</label>
+                <input type="tel" id="phone" value="090-847-7521" required>
+
+                <label for="email">Email *</label>
+                <input type="email" id="email" value="email@gmail.com" required>
+
+                <label for="date">Ngày Hẹn *</label>
+                <input type="date" id="date" required>
+
+                <label>Combo đi chơi *</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="combo" value="viet"> Đồ Việt + Trà Sữa
+                    </label>
+                    <label>
+                        <input type="radio" name="combo" value="europe"> Đồ Âu + Quán Bánh
+                    </label>
+                    <label>
+                        <input type="radio" name="combo" value="asia"> Đồ Á + Trái Cây Tô / Sinh Tố
+                    </label>
+                </div>
+                
+                <button type="submit">Gửi</button>
+            </form> -->
+            <form id="valentineForm">
+                <label>Họ Tên * <input type="text" name="name" required></label>
+                <label>SDT * <input type="tel" name="phone" required></label>
+                <label>Email * <input type="email" name="email" required></label>
+                <label>Ngày Hẹn * <input type="date" name="date" required></label>
+            
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="combo" value="viet"> Đồ Việt + Trà Sữa
+                    </label>
+                    <label>
+                        <input type="radio" name="combo" value="europe"> Đồ Âu + Quán Bánh
+                    </label>
+                    <label>
+                        <input type="radio" name="combo" value="asia"> Đồ Á + Trái Cây Tô / Sinh Tố
+                    </label>
+                </div>
+            
+                <button type="submit">Gửi</button>
+            </form>
+            
+            <!-- <script>
+            document.getElementById("valentineForm").addEventListener("submit", function(e) {
+                e.preventDefault(); // Prevent default form submission
+            
+                var formData = new FormData(this);
+                var object = {};
+                formData.forEach((value, key) => object[key] = value);
+                
+                fetch("https://script.google.com/macros/s/AKfycbzPNyCZUHwbXxL1429XgS2ATjhm54wGIYFDNg1Ey1TtQkKXNVIRIsjKohpAR-IBShM-/exec", {
+                    method: "GET",
+                    body: JSON.stringify(object),
+                    headers: { "Content-Type": "application/json" }
+                })
+                .then(response => response.text())
+                .then(data => {
+                    alert("Form submitted successfully!");
+                    document.getElementById("valentineForm").reset();
+                })
+                .catch(error => console.error("Error:", error));
+            });
+            </script> -->
+            <script>
+                document.getElementById("valentineForm").addEventListener("submit", function(e) {
+                e.preventDefault(); // Prevent default form submission
+
+                var formData = new FormData(this);
+                var params = new URLSearchParams();
+
+                formData.forEach((value, key) => {
+                    params.append(key, value);  // Append each form data as query parameters
+                });
+
+                var url = "https://script.google.com/macros/s/AKfycbzPNyCZUHwbXxL1429XgS2ATjhm54wGIYFDNg1Ey1TtQkKXNVIRIsjKohpAR-IBShM-/exec?" + params.toString();
+
+                fetch(url, {
+                    method: "GET", // Using GET with query parameters
+                })
+                .then(response => response.text())
+                .then(data => {
+                    alert("Form submitted successfully!");
+                    document.getElementById("valentineForm").reset();
+                })
+                .catch(error => console.error("Error:", error));
+            });
+
+            </script>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <h2>Valentine 2025</h2>
+        <p><a href="#">Ho Chi Minh City, Ho Chi Minh City VN</a></p>
+        <p><a href="mailto:tinh.caoco@gmail.com">tinh.caoco@gmail.com</a></p>
+    </footer>
+
+</body>
+</html>
